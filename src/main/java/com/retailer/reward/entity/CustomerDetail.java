@@ -1,0 +1,25 @@
+package com.retailer.reward.entity;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Data;
+
+@Entity
+@Table(
+  name = "CUSTOMER_DETAIL")
+@Data
+public class CustomerDetail {
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "CUST_ID")
+  private Long customerId;
+
+  @Column(name = "CUST_NAME")
+  private String customerName;
+
+}
