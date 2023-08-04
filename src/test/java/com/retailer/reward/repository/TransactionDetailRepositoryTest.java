@@ -52,9 +52,8 @@ class TransactionDetailRepositoryTest {
       transactionDetailRepository.findAllByCustomerIdAndTransactionDateBetween(1L,
         Timestamp.valueOf("2023-06-23 10:10:10.0"), Timestamp.valueOf("2023-07-22 10:10:10.0"));
 
-    assertThat(transactionDetailListMock).isNotNull();
-
-    assertThat(transactionDetailListMock.size()).isEqualTo(2);
+    assertThat(transactionDetailListMock).isNotNull()
+      .hasSize(2);
   }
 
   @DisplayName("Test for findAllByCustomerIdAndTransactionDateBetween method when no transaction found for given criteria")
