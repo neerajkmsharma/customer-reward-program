@@ -9,13 +9,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
 import com.retailer.reward.CustomerRewardProgramApplicationTest;
 import com.retailer.reward.entity.TransactionDetail;
 
 @CustomerRewardProgramApplicationTest
-public class TransactionDetailRepositoryTest {
+class TransactionDetailRepositoryTest {
 
   @Mock
   private TransactionDetailRepository transactionDetailRepository;
@@ -38,7 +39,7 @@ public class TransactionDetailRepositoryTest {
       .build());
   }
 
-  // @Test
+  @Test
   void findAllByCustomerIdAndTransactionDateBetween() {
 
     given(transactionDetailRepository.findAllByCustomerIdAndTransactionDateBetween(1L,
@@ -54,7 +55,7 @@ public class TransactionDetailRepositoryTest {
     assertThat(transactionDetailListMock.size()).isEqualTo(2);
   }
 
-  // @Test
+  @Test
   void findAllByCustomerIdAndTransactionDateBetween_NotTransactionFound() {
 
     given(transactionDetailRepository.findAllByCustomerIdAndTransactionDateBetween(1L,

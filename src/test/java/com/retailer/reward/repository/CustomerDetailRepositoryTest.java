@@ -11,7 +11,7 @@ import com.retailer.reward.CustomerRewardProgramApplicationTest;
 import com.retailer.reward.entity.CustomerDetail;
 
 @CustomerRewardProgramApplicationTest
-public class CustomerDetailRepositoryTest {
+class CustomerDetailRepositoryTest {
 
   @Mock
   private CustomerDetailRepository customerDetailRepository;

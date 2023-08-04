@@ -6,6 +6,7 @@
 /Users/neerajkumarsharma/infogain-assignment/customer-reward-program/src/main/java/com/retailer/reward/model/ExceptionResponse.java
 /Users/neerajkumarsharma/infogain-assignment/customer-reward-program/src/main/java/com/retailer/reward/util/CustomerRewardProgramConstant.java
 /Users/neerajkumarsharma/infogain-assignment/customer-reward-program/src/main/java/com/retailer/reward/CustomerRewardProgramApplication.java
+/Users/neerajkumarsharma/infogain-assignment/customer-reward-program/src/main/java/com/retailer/reward/model/CustomerMonthlyTransaction.java
 /Users/neerajkumarsharma/infogain-assignment/customer-reward-program/src/main/java/com/retailer/reward/exception/GlobalExceptionHandler.java
 /Users/neerajkumarsharma/infogain-assignment/customer-reward-program/src/main/java/com/retailer/reward/service/CustomerRewardServiceImpl.java
 /Users/neerajkumarsharma/infogain-assignment/customer-reward-program/src/main/java/com/retailer/reward/service/helper/CustomerRewardServiceHelper.java

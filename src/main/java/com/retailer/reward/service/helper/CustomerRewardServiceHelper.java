@@ -47,8 +47,8 @@ public class CustomerRewardServiceHelper {
 
   }
 
-  protected Timestamp getDateBasedOnOffSetDays(final int days) {
+  protected Timestamp getDateBasedOnOffSetMonths(final int months) {
     return Timestamp.valueOf(LocalDateTime.now()
-      .minusDays(days));
+      .minusMonths(months));
   }
 }

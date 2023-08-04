@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.retailer.reward.service.CustomerDetailServiceTest" time="0.06" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.retailer.reward.repository.TransactionDetailRepositoryTest" time="7.897" tests="2" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -52,7 +52,7 @@
     <property name="java.io.tmpdir" value="/var/folders/lq/lwkbb6tn4_505bzm8y64x4dr0000gn/T/"/>
     <property name="wiremock.org.eclipse.jetty.http.HttpGenerator.STRICT" value="true"/>
     <property name="catalina.home" value="/private/var/folders/lq/lwkbb6tn4_505bzm8y64x4dr0000gn/T/tomcat.0.4830433113149817201"/>
-    <property name="com.zaxxer.hikari.pool_number" value="2"/>
+    <property name="com.zaxxer.hikari.pool_number" value="1"/>
     <property name="java.version" value="17.0.8"/>
     <property name="user.dir" value="/Users/neerajkumarsharma/infogain-assignment/customer-reward-program"/>
     <property name="os.arch" value="x86_64"/>
@@ -70,5 +70,41 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="getCustomerIdById" classname="com.retailer.reward.service.CustomerDetailServiceTest" time="0.01"/>
+  <testcase name="findAllByCustomerIdAndTransactionDateBetween_NotTransactionFound" classname="com.retailer.reward.repository.TransactionDetailRepositoryTest" time="0.388">
+    <system-out><![CDATA[
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.1.2)
+
+2023-08-04T02:10:30.160-04:00  INFO 4712 --- [           main] c.r.r.r.TransactionDetailRepositoryTest  : Starting TransactionDetailRepositoryTest using Java 17.0.8 with PID 4712 (started by neerajkumarsharma in /Users/neerajkumarsharma/infogain-assignment/customer-reward-program)
+2023-08-04T02:10:30.169-04:00  INFO 4712 --- [           main] c.r.r.r.TransactionDetailRepositoryTest  : The following 1 profile is active: "test"
+2023-08-04T02:10:31.143-04:00  INFO 4712 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-04T02:10:31.343-04:00  INFO 4712 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 192 ms. Found 2 JPA repository interfaces.
+2023-08-04T02:10:31.940-04:00  INFO 4712 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2023-08-04T02:10:31.949-04:00  INFO 4712 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-08-04T02:10:31.949-04:00  INFO 4712 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.11]
+2023-08-04T02:10:32.073-04:00  INFO 4712 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-08-04T02:10:32.075-04:00  INFO 4712 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1847 ms
+2023-08-04T02:10:32.114-04:00  INFO 4712 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-08-04T02:10:32.304-04:00  INFO 4712 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:customerdbTest user=SA
+2023-08-04T02:10:32.306-04:00  INFO 4712 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-08-04T02:10:32.318-04:00  INFO 4712 --- [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:customerdbTest'
+2023-08-04T02:10:32.491-04:00  INFO 4712 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-04T02:10:32.550-04:00  INFO 4712 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.6.Final
+2023-08-04T02:10:32.553-04:00  INFO 4712 --- [           main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-08-04T02:10:32.694-04:00  INFO 4712 --- [           main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-04T02:10:32.842-04:00  INFO 4712 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-08-04T02:10:33.063-04:00  INFO 4712 --- [           main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-04T02:10:33.688-04:00  INFO 4712 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-04T02:10:33.752-04:00  INFO 4712 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-04T02:10:35.355-04:00  WARN 4712 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-04T02:10:35.920-04:00  INFO 4712 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 56312 (http) with context path ''
+2023-08-04T02:10:35.931-04:00  INFO 4712 --- [           main] c.r.r.r.TransactionDetailRepositoryTest  : Started TransactionDetailRepositoryTest in 6.159 seconds (process running for 7.387)
+]]></system-out>
+  </testcase>
+  <testcase name="findAllByCustomerIdAndTransactionDateBetween" classname="com.retailer.reward.repository.TransactionDetailRepositoryTest" time="0.017"/>
 </testsuite>

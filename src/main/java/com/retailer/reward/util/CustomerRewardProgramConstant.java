@@ -4,6 +4,10 @@ import java.math.BigDecimal;
 
 public final class CustomerRewardProgramConstant {
 
+  // private constructor to avoid creation of instance of this class
+  private CustomerRewardProgramConstant() {
+  }
+
   public static final int INT_THREE = 3;
 
   public static final int DAYS_IN_MONTH = 30;

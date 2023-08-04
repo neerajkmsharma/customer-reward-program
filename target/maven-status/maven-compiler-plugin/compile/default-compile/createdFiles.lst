@@ -2,11 +2,13 @@ com/retailer/reward/repository/CustomerDetailRepository.class
 com/retailer/reward/exception/GlobalExceptionHandler.class
 com/retailer/reward/service/CustomerDetailServiceImpl.class
 com/retailer/reward/model/CustomerMonthlyRewardPoint$CustomerMonthlyRewardPointBuilder.class
+com/retailer/reward/model/CustomerMonthlyTransaction$CustomerMonthlyTransactionBuilder.class
 com/retailer/reward/entity/TransactionDetail.class
 com/retailer/reward/model/CustomerMonthlyRewardPoint.class
 com/retailer/reward/entity/CustomerDetail$CustomerDetailBuilder.class
 com/retailer/reward/model/ExceptionResponse.class
 com/retailer/reward/exception/CustomerNotFoundException.class
+com/retailer/reward/model/CustomerMonthlyTransaction.class
 com/retailer/reward/service/CustomerRewardServiceImpl.class
 com/retailer/reward/service/helper/CustomerRewardServiceHelper.class
 com/retailer/reward/entity/TransactionDetail$TransactionDetailBuilder.class

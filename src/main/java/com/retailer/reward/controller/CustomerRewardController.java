@@ -14,7 +14,6 @@ import com.retailer.reward.model.CustomerRewardDetail;
 import com.retailer.reward.service.CustomerRewardService;
 
 import jakarta.validation.ValidationException;
-import jakarta.validation.constraints.NotNull;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
@@ -29,7 +28,7 @@ public class CustomerRewardController {
     value = "/{customerId}/reward-points",
     produces = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<CustomerRewardDetail> getRewardPointsByCustomerId(@PathVariable(
-    required = false) @NotNull final Long customerId) throws CustomerRewardProgramException {
+    required = false) final Long customerId) throws CustomerRewardProgramException {
 
     if (customerId == null || customerId == 0L) {
       log.debug("Invalid Customer id {}", customerId);

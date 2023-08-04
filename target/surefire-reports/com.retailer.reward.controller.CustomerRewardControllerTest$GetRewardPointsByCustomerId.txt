@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.retailer.reward.controller.CustomerRewardControllerTest$GetRewardPointsByCustomerId
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.239 s - in com.retailer.reward.controller.CustomerRewardControllerTest$GetRewardPointsByCustomerId
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.18 s - in com.retailer.reward.controller.CustomerRewardControllerTest$GetRewardPointsByCustomerId

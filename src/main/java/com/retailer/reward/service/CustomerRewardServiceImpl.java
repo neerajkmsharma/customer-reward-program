@@ -1,17 +1,18 @@
 package com.retailer.reward.service;
 
-import static com.retailer.reward.util.CustomerRewardProgramConstant.DAYS_IN_MONTH;
 import static com.retailer.reward.util.CustomerRewardProgramConstant.INT_THREE;
+import static org.apache.commons.lang3.math.NumberUtils.INTEGER_ONE;
 import static org.apache.commons.lang3.math.NumberUtils.INTEGER_TWO;
 
 import java.sql.Timestamp;
-import java.time.Instant;
+import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.retailer.reward.exception.CustomerNotFoundException;
 import com.retailer.reward.model.CustomerMonthlyRewardPoint;
+import com.retailer.reward.model.CustomerMonthlyTransaction;
 import com.retailer.reward.model.CustomerRewardDetail;
 import com.retailer.reward.repository.TransactionDetailRepository;
 import com.retailer.reward.service.helper.CustomerRewardServiceHelper;
@@ -32,20 +33,12 @@ public class CustomerRewardServiceImpl extends CustomerRewardServiceHelper imple
       throw new CustomerNotFoundException("Customer not found");
     }
 
-    final var lastMonthTimestamp = getDateBasedOnOffSetDays(DAYS_IN_MONTH);
-    final var lastSecondMonthTimestamp = getDateBasedOnOffSetDays(INTEGER_TWO * DAYS_IN_MONTH);
-    final var lastThirdMonthTimestamp = getDateBasedOnOffSetDays(INT_THREE * DAYS_IN_MONTH);
+    final CustomerMonthlyTransaction monthlyTransactions = getMonthlyTransactions(customerId);
 
-    final var lastMonthTransactions = transactionDetailRepository
-      .findAllByCustomerIdAndTransactionDateBetween(customerId, lastMonthTimestamp, Timestamp.from(Instant.now()));
-    final var lastSecondMonthTransactions = transactionDetailRepository
-      .findAllByCustomerIdAndTransactionDateBetween(customerId, lastSecondMonthTimestamp, lastMonthTimestamp);
-    final var lastThirdMonthTransactions = transactionDetailRepository
-      .findAllByCustomerIdAndTransactionDateBetween(customerId, lastThirdMonthTimestamp, lastSecondMonthTimestamp);
-
-    final var firstLastMonthRewardPoints = getRewardPointsPerMonth(lastMonthTransactions);
-    final var secondLastMonthRewardPoints = getRewardPointsPerMonth(lastSecondMonthTransactions);
-    final var thirdLastMonthRewardPoints = getRewardPointsPerMonth(lastThirdMonthTransactions);
+    final var firstLastMonthRewardPoints = getRewardPointsPerMonth(monthlyTransactions.getFistLastMonthTransactions());
+    final var secondLastMonthRewardPoints =
+      getRewardPointsPerMonth(monthlyTransactions.getSecondLastMonthTransactions());
+    final var thirdLastMonthRewardPoints = getRewardPointsPerMonth(monthlyTransactions.getThirdLastMonthTransaction());
 
     return CustomerRewardDetail.builder()
       .customerId(customerId)
@@ -58,4 +51,24 @@ public class CustomerRewardServiceImpl extends CustomerRewardServiceHelper imple
       .build();
   }
 
+  private CustomerMonthlyTransaction getMonthlyTransactions(final Long customerId) {
+
+    final var fistLastMonthTimestamp = getDateBasedOnOffSetMonths(INTEGER_ONE);
+    final var secondLastMonthTimestamp = getDateBasedOnOffSetMonths(INTEGER_TWO);
+    final var thirdLastMonthTimestamp = getDateBasedOnOffSetMonths(INT_THREE);
+
+    final var fistLastMonthTransactions = transactionDetailRepository.findAllByCustomerIdAndTransactionDateBetween(
+      customerId, fistLastMonthTimestamp, Timestamp.valueOf(LocalDateTime.now()));
+    final var secondLastMonthTransactions = transactionDetailRepository
+      .findAllByCustomerIdAndTransactionDateBetween(customerId, secondLastMonthTimestamp, fistLastMonthTimestamp);
+    final var thirdLastMonthTransaction = transactionDetailRepository
+      .findAllByCustomerIdAndTransactionDateBetween(customerId, thirdLastMonthTimestamp, secondLastMonthTimestamp);
+
+    return CustomerMonthlyTransaction.builder()
+      .fistLastMonthTransactions(fistLastMonthTransactions)
+      .secondLastMonthTransactions(secondLastMonthTransactions)
+      .thirdLastMonthTransaction(thirdLastMonthTransaction)
+      .build();
+
+  }
 }

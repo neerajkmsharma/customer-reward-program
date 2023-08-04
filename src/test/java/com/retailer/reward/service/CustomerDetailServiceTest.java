@@ -14,7 +14,7 @@ import com.retailer.reward.entity.CustomerDetail;
 import com.retailer.reward.repository.CustomerDetailRepository;
 
 @CustomerRewardProgramApplicationTest
-public class CustomerDetailServiceTest {
+class CustomerDetailServiceTest {
 
   @InjectMocks
   private CustomerDetailServiceImpl customerDetailService;
@@ -35,7 +35,7 @@ public class CustomerDetailServiceTest {
 
   @DisplayName("JUnit test for getCustomerIdById method")
   @Test
-  public void getCustomerIdById() {
+  void getCustomerIdById() {
     given(customerRepository.findByCustomerId(1L)).willReturn(customerDetail);
 
     final var customerDetailMocked = customerDetailService.getCustomerIdById(1L);

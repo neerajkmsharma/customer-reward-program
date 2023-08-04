@@ -20,7 +20,7 @@ public class CustomerRewardControllerTest {
   private WebTestClient httpClient;
 
   @Nested
-  public class GetRewardPointsByCustomerId {
+  class GetRewardPointsByCustomerId {
 
     @Test
     void getRewardPointsByCustomerId() {
