@@ -16,6 +16,10 @@ import com.retailer.reward.service.CustomerRewardService;
 import jakarta.validation.ValidationException;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * @apiNote This is main Controller class for Customer Reward Program
+ *
+ */
 @RestController
 @RequestMapping("/customer-reward-program/api/v1")
 @Slf4j
@@ -30,6 +34,7 @@ public class CustomerRewardController {
   public ResponseEntity<CustomerRewardDetail> getRewardPointsByCustomerId(@PathVariable(
     required = false) final Long customerId) throws CustomerRewardProgramException {
 
+    // Initial validation for customer
     if (customerId == null || customerId == 0L) {
       log.debug("Invalid Customer id {}", customerId);
       throw new ValidationException("Customer is not valid");

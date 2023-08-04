@@ -13,6 +13,11 @@ import com.retailer.reward.model.ExceptionResponse;
 
 import jakarta.validation.ValidationException;
 
+/**
+ * @implNote This is Advice class to handle exception thrown by application and
+ *           wrap into custom message
+ *
+ */
 @RestControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 

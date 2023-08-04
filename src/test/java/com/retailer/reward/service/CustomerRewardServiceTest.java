@@ -68,7 +68,7 @@ class CustomerRewardServiceTest {
 
   }
 
-  @DisplayName("JUnit test for getCustomerIdById method")
+  @DisplayName("Test for getCustomerIdById method for valid scenario")
   @Test
   void getRewardPointsByCustomerId() {
 
@@ -91,7 +91,7 @@ class CustomerRewardServiceTest {
       .getThirdLastMonthRewardPoints()).isEqualTo(270L);
   }
 
-  @DisplayName("JUnit test for getCustomerIdById method wher InvalidCustomerId")
+  @DisplayName("Test for getCustomerIdById method where Invalid CustomerId")
   @Test
   void getRewardPointsByCustomerId_InvalidCustomerId() {
 

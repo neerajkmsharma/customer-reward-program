@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
@@ -26,6 +27,7 @@ class CustomerDetailRepositoryTest {
       .build();
   }
 
+  @DisplayName("Test for findByCustomerId method for valid data")
   @Test
   void findByCustomerId() {
 
@@ -38,6 +40,7 @@ class CustomerDetailRepositoryTest {
     assertThat(customerDetailMocked.getCustomerName()).isEqualTo("Jack Smith");
   }
 
+  @DisplayName("Test for findByCustomerId method for invalid CustomerId")
   @Test
   void findByCustomerId_NotFound() {
 

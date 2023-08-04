@@ -33,7 +33,7 @@ class CustomerDetailServiceTest {
 
   }
 
-  @DisplayName("JUnit test for getCustomerIdById method")
+  @DisplayName("Test for getCustomerIdById method")
   @Test
   void getCustomerIdById() {
     given(customerRepository.findByCustomerId(1L)).willReturn(customerDetail);

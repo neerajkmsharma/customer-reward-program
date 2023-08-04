@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
@@ -39,6 +40,7 @@ class TransactionDetailRepositoryTest {
       .build());
   }
 
+  @DisplayName("Test for findAllByCustomerIdAndTransactionDateBetween method for valid data")
   @Test
   void findAllByCustomerIdAndTransactionDateBetween() {
 
@@ -55,6 +57,7 @@ class TransactionDetailRepositoryTest {
     assertThat(transactionDetailListMock.size()).isEqualTo(2);
   }
 
+  @DisplayName("Test for findAllByCustomerIdAndTransactionDateBetween method when no transaction found for given criteria")
   @Test
   void findAllByCustomerIdAndTransactionDateBetween_NotTransactionFound() {
 

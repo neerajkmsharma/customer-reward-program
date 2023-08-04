@@ -6,3 +6,4 @@ com/retailer/reward/CustomerRewardProgramApplicationTests.class
 com/retailer/reward/service/CustomerRewardServiceTest.class
 com/retailer/reward/service/CustomerDetailServiceTest.class
 com/retailer/reward/controller/CustomerRewardControllerTest$GetRewardPointsByCustomerId.class
+com/retailer/reward/service/helper/CustomerRewardServiceHelperTest.class

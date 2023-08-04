@@ -14,39 +14,63 @@ import java.util.stream.Collectors;
 
 import com.retailer.reward.entity.TransactionDetail;
 
+/**
+ * @implNote This class consists methods for Reward calculation
+ *
+ */
 public class CustomerRewardServiceHelper {
 
+  /**
+   * get total reward points for monthly transactions
+   *
+   * @param transactions
+   * @return Long
+   */
   protected Long getRewardPointsPerMonth(final List<TransactionDetail> transactions) {
     return transactions.stream()
       .map(this::calculateRewardPoints)
       .collect(Collectors.summingLong(BigDecimal::longValue));
   }
 
+  /**
+   * Calculate Reward point as per transaction amount
+   *
+   * @param transactionDetail
+   * @return BigDecimal
+   */
   protected BigDecimal calculateRewardPoints(final TransactionDetail transactionDetail) {
-
-    final var transactionAmount = transactionDetail.getTransactionAmount();
-
-    final var overSecondRewardLimitTransaction = transactionAmount.subtract(SECOND_REWARD_LIMIT);
 
     var rewardPoints = ZERO;
 
-    if (overSecondRewardLimitTransaction.compareTo(ZERO) > INTEGER_ZERO) {
-      /*
-       * A customer receives 2 points for each dollar spent over $100 in every
-       * transaction
-       */
-      rewardPoints = rewardPoints.add((overSecondRewardLimitTransaction.multiply(DECIMAL_TWO)));
-    }
+    final var transactionAmount = transactionDetail.getTransactionAmount();
 
-    if (transactionAmount.compareTo(FIRST_REWARD_LIMIT) > INTEGER_ZERO) {
-      // Plus 1 reward point for each dollar spent over $50 in every transaction
-      rewardPoints = rewardPoints.add(FIRST_REWARD_LIMIT);
-    }
+    if (transactionAmount != null && transactionAmount.compareTo(ZERO) > 0) {
 
+      final var overSecondRewardLimitTransaction = transactionAmount.subtract(SECOND_REWARD_LIMIT);
+
+      if (overSecondRewardLimitTransaction.compareTo(ZERO) > INTEGER_ZERO) {
+        /*
+         * A customer receives 2 points for each dollar spent over $100 in every
+         * transaction
+         */
+        rewardPoints = rewardPoints.add((overSecondRewardLimitTransaction.multiply(DECIMAL_TWO)));
+      }
+
+      if (transactionAmount.compareTo(FIRST_REWARD_LIMIT) > INTEGER_ZERO) {
+        // Plus 1 reward point for each dollar spent over $50 in every transaction
+        rewardPoints = rewardPoints.add(FIRST_REWARD_LIMIT);
+      }
+    }
     return rewardPoints;
 
   }
 
+  /**
+   * Method provides current Timestamp based of Off-Set Months
+   *
+   * @param months
+   * @return Timestamp
+   */
   protected Timestamp getDateBasedOnOffSetMonths(final int months) {
     return Timestamp.valueOf(LocalDateTime.now()
       .minusMonths(months));

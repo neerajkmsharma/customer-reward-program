@@ -8,6 +8,12 @@ import com.retailer.reward.entity.CustomerDetail;
 @Transactional
 public interface CustomerDetailRepository extends CrudRepository<CustomerDetail, Long> {
 
+  /**
+   * This operation find Customer detail on the basis of customerId
+   *
+   * @param customerId
+   * @return CustomerDetail
+   */
   public CustomerDetail findByCustomerId(Long customerId);
 
 }

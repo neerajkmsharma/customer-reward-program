@@ -1,6 +1,13 @@
 server:
   port: 9090
 
+logging:
+  pattern:
+      console: '%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n'
+  level:
+    root: INFO
+    com.retailer.reward.controller: TRACE
+
 spring:
   h2:
     console:
