@@ -32,10 +32,19 @@ The application should now be accessible at http://localhost:9090/swagger-ui/ind
 API end point - http://localhost:9090/customer-reward-program/api/v1/{customerId}/reward-points
 
 # Application Structure
-The application follows a standard SpringBoot project structure:
+1. The application follows a standard SpringBoot project structure:
 
-![image](https://github.com/neerajkmsharma/search-sort-algorithm/assets/78490716/4ee47a56-0fd5-48e5-bc87-e70d73721307)
+   ![image](https://github.com/neerajkmsharma/search-sort-algorithm/assets/78490716/4ee47a56-0fd5-48e5-bc87-e70d73721307)
 
+2. Swagger page
+
+    ![image](https://github.com/neerajkmsharma/search-sort-algorithm/assets/78490716/5ab4a507-6457-4012-abaf-e237abd8b96c)
+
+3. H2 Database screenshot
+   A. Table CUSTOMER_DETAIL
+      ![image](https://github.com/neerajkmsharma/search-sort-algorithm/assets/78490716/87d22661-9978-4347-80fa-e1379f8453cf)
+   B. TRANSACTION_DETAIL
+      ![image](https://github.com/neerajkmsharma/search-sort-algorithm/assets/78490716/971a2c62-9810-4010-adeb-f88f7db671dd)
 
 1. src/main/java: Contains all Java source code, including controllers, models, repositories, services and etc.
 2. src/main/resources: Contains application yaml.
