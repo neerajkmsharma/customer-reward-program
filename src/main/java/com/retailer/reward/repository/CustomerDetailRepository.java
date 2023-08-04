@@ -6,10 +6,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.retailer.reward.entity.CustomerDetail;
 
-
 @Repository
 @Transactional
-public interface CustomerDetailRepository extends CrudRepository<CustomerDetail,Long> {
+public interface CustomerDetailRepository extends CrudRepository<CustomerDetail, Long> {
+
   public CustomerDetail findByCustomerId(Long customerId);
-  
+
 }

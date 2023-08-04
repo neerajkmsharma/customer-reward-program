@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.retailer.reward.CustomerRewardProgramApplicationTests" time="1.58" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.retailer.reward.controller.CustomerRewardControllerTest$GetRewardPointsByCustomerId" time="1.239" tests="6" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -52,7 +52,7 @@
     <property name="java.io.tmpdir" value="/var/folders/lq/lwkbb6tn4_505bzm8y64x4dr0000gn/T/"/>
     <property name="wiremock.org.eclipse.jetty.http.HttpGenerator.STRICT" value="true"/>
     <property name="catalina.home" value="/private/var/folders/lq/lwkbb6tn4_505bzm8y64x4dr0000gn/T/tomcat.0.11198024885529338178"/>
-    <property name="com.zaxxer.hikari.pool_number" value="2"/>
+    <property name="com.zaxxer.hikari.pool_number" value="1"/>
     <property name="java.version" value="17.0.8"/>
     <property name="user.dir" value="/Users/neerajkumarsharma/infogain-assignment/customer-reward-program"/>
     <property name="os.arch" value="x86_64"/>
@@ -70,34 +70,15 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="contextLoads" classname="com.retailer.reward.CustomerRewardProgramApplicationTests" time="0.007">
-    <system-out><![CDATA[2023-08-03T21:49:20.583-04:00  INFO 18495 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.retailer.reward.CustomerRewardProgramApplicationTests]: CustomerRewardProgramApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2023-08-03T21:49:20.604-04:00  INFO 18495 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.retailer.reward.CustomerRewardProgramApplication for test class com.retailer.reward.CustomerRewardProgramApplicationTests
-
-  .   ____          _            __ _ _
- /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
- \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-  '  |____| .__|_| |_|_| |_\__, | / / / /
- =========|_|==============|___/=/_/_/_/
- :: Spring Boot ::                (v3.1.2)
-
-2023-08-03T21:49:20.697-04:00  INFO 18495 --- [           main] .r.CustomerRewardProgramApplicationTests : Starting CustomerRewardProgramApplicationTests using Java 17.0.8 with PID 18495 (started by neerajkumarsharma in /Users/neerajkumarsharma/infogain-assignment/customer-reward-program)
-2023-08-03T21:49:20.698-04:00  INFO 18495 --- [           main] .r.CustomerRewardProgramApplicationTests : No active profile set, falling back to 1 default profile: "default"
-2023-08-03T21:49:21.078-04:00  INFO 18495 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-08-03T21:49:21.107-04:00  INFO 18495 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27 ms. Found 2 JPA repository interfaces.
-2023-08-03T21:49:21.322-04:00  INFO 18495 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-2023-08-03T21:49:21.329-04:00  INFO 18495 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:customerdb user=SA
-2023-08-03T21:49:21.329-04:00  INFO 18495 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
-2023-08-03T21:49:21.420-04:00  INFO 18495 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-08-03T21:49:21.439-04:00  INFO 18495 --- [           main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-08-03T21:49:21.440-04:00  INFO 18495 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-08-03T21:49:21.465-04:00  INFO 18495 --- [           main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-08-03T21:49:21.536-04:00  INFO 18495 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-08-03T21:49:21.544-04:00  INFO 18495 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-08-03T21:49:21.857-04:00  WARN 18495 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-08-03T21:49:22.070-04:00  INFO 18495 --- [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:customerdb'
-2023-08-03T21:49:22.143-04:00  INFO 18495 --- [           main] .r.CustomerRewardProgramApplicationTests : Started CustomerRewardProgramApplicationTests in 1.529 seconds (process running for 11.58)
+  <testcase name="getRewardPointsByCustomerId_CustomerIdNull" classname="com.retailer.reward.controller.CustomerRewardControllerTest$GetRewardPointsByCustomerId" time="0.76">
+    <system-out><![CDATA[2023-08-03T21:49:19.877-04:00  INFO 18495 --- [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-08-03T21:49:19.877-04:00  INFO 18495 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-08-03T21:49:19.880-04:00  INFO 18495 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
 ]]></system-out>
   </testcase>
+  <testcase name="getRewardPointsByCustomerId_WrongURL" classname="com.retailer.reward.controller.CustomerRewardControllerTest$GetRewardPointsByCustomerId" time="0.049"/>
+  <testcase name="getRewardPointsByCustomerId_NoFound" classname="com.retailer.reward.controller.CustomerRewardControllerTest$GetRewardPointsByCustomerId" time="0.203"/>
+  <testcase name="getRewardPointsByCustomerId" classname="com.retailer.reward.controller.CustomerRewardControllerTest$GetRewardPointsByCustomerId" time="0.106"/>
+  <testcase name="getRewardPointsByCustomerId_ValidateResponse" classname="com.retailer.reward.controller.CustomerRewardControllerTest$GetRewardPointsByCustomerId" time="0.026"/>
+  <testcase name="getRewardPointsByCustomerId_BadRequest" classname="com.retailer.reward.controller.CustomerRewardControllerTest$GetRewardPointsByCustomerId" time="0.014"/>
 </testsuite>

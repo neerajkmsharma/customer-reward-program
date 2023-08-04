@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.retailer.reward.CustomerRewardProgramApplicationTests" time="1.58" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.retailer.reward.repository.CustomerDetailRepositoryTest" time="7.851" tests="2" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -52,7 +52,7 @@
     <property name="java.io.tmpdir" value="/var/folders/lq/lwkbb6tn4_505bzm8y64x4dr0000gn/T/"/>
     <property name="wiremock.org.eclipse.jetty.http.HttpGenerator.STRICT" value="true"/>
     <property name="catalina.home" value="/private/var/folders/lq/lwkbb6tn4_505bzm8y64x4dr0000gn/T/tomcat.0.11198024885529338178"/>
-    <property name="com.zaxxer.hikari.pool_number" value="2"/>
+    <property name="com.zaxxer.hikari.pool_number" value="1"/>
     <property name="java.version" value="17.0.8"/>
     <property name="user.dir" value="/Users/neerajkumarsharma/infogain-assignment/customer-reward-program"/>
     <property name="os.arch" value="x86_64"/>
@@ -70,10 +70,8 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="contextLoads" classname="com.retailer.reward.CustomerRewardProgramApplicationTests" time="0.007">
-    <system-out><![CDATA[2023-08-03T21:49:20.583-04:00  INFO 18495 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.retailer.reward.CustomerRewardProgramApplicationTests]: CustomerRewardProgramApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2023-08-03T21:49:20.604-04:00  INFO 18495 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.retailer.reward.CustomerRewardProgramApplication for test class com.retailer.reward.CustomerRewardProgramApplicationTests
-
+  <testcase name="findByCustomerId_NotFound" classname="com.retailer.reward.repository.CustomerDetailRepositoryTest" time="0.399">
+    <system-out><![CDATA[
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
 ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
@@ -82,22 +80,31 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.1.2)
 
-2023-08-03T21:49:20.697-04:00  INFO 18495 --- [           main] .r.CustomerRewardProgramApplicationTests : Starting CustomerRewardProgramApplicationTests using Java 17.0.8 with PID 18495 (started by neerajkumarsharma in /Users/neerajkumarsharma/infogain-assignment/customer-reward-program)
-2023-08-03T21:49:20.698-04:00  INFO 18495 --- [           main] .r.CustomerRewardProgramApplicationTests : No active profile set, falling back to 1 default profile: "default"
-2023-08-03T21:49:21.078-04:00  INFO 18495 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-08-03T21:49:21.107-04:00  INFO 18495 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27 ms. Found 2 JPA repository interfaces.
-2023-08-03T21:49:21.322-04:00  INFO 18495 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-2023-08-03T21:49:21.329-04:00  INFO 18495 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:customerdb user=SA
-2023-08-03T21:49:21.329-04:00  INFO 18495 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
-2023-08-03T21:49:21.420-04:00  INFO 18495 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-08-03T21:49:21.439-04:00  INFO 18495 --- [           main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-08-03T21:49:21.440-04:00  INFO 18495 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-08-03T21:49:21.465-04:00  INFO 18495 --- [           main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-08-03T21:49:21.536-04:00  INFO 18495 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-08-03T21:49:21.544-04:00  INFO 18495 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-08-03T21:49:21.857-04:00  WARN 18495 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-08-03T21:49:22.070-04:00  INFO 18495 --- [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:customerdb'
-2023-08-03T21:49:22.143-04:00  INFO 18495 --- [           main] .r.CustomerRewardProgramApplicationTests : Started CustomerRewardProgramApplicationTests in 1.529 seconds (process running for 11.58)
+2023-08-03T21:49:12.242-04:00  INFO 18495 --- [           main] c.r.r.r.CustomerDetailRepositoryTest     : Starting CustomerDetailRepositoryTest using Java 17.0.8 with PID 18495 (started by neerajkumarsharma in /Users/neerajkumarsharma/infogain-assignment/customer-reward-program)
+2023-08-03T21:49:12.248-04:00  INFO 18495 --- [           main] c.r.r.r.CustomerDetailRepositoryTest     : The following 1 profile is active: "test"
+2023-08-03T21:49:13.253-04:00  INFO 18495 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-03T21:49:13.434-04:00  INFO 18495 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 172 ms. Found 2 JPA repository interfaces.
+2023-08-03T21:49:14.061-04:00  INFO 18495 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2023-08-03T21:49:14.071-04:00  INFO 18495 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-08-03T21:49:14.072-04:00  INFO 18495 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.11]
+2023-08-03T21:49:14.214-04:00  INFO 18495 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-08-03T21:49:14.217-04:00  INFO 18495 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1921 ms
+2023-08-03T21:49:14.255-04:00  INFO 18495 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-08-03T21:49:14.455-04:00  INFO 18495 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:customerdbTest user=SA
+2023-08-03T21:49:14.457-04:00  INFO 18495 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-08-03T21:49:14.469-04:00  INFO 18495 --- [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:customerdbTest'
+2023-08-03T21:49:14.655-04:00  INFO 18495 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-03T21:49:14.719-04:00  INFO 18495 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.6.Final
+2023-08-03T21:49:14.722-04:00  INFO 18495 --- [           main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-08-03T21:49:14.906-04:00  INFO 18495 --- [           main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-03T21:49:15.048-04:00  INFO 18495 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-08-03T21:49:15.303-04:00  INFO 18495 --- [           main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-03T21:49:15.996-04:00  INFO 18495 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-03T21:49:16.070-04:00  INFO 18495 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-03T21:49:17.385-04:00  WARN 18495 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-03T21:49:17.915-04:00  INFO 18495 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 51467 (http) with context path ''
+2023-08-03T21:49:17.925-04:00  INFO 18495 --- [           main] c.r.r.r.CustomerDetailRepositoryTest     : Started CustomerDetailRepositoryTest in 6.146 seconds (process running for 7.362)
 ]]></system-out>
   </testcase>
+  <testcase name="findByCustomerId" classname="com.retailer.reward.repository.CustomerDetailRepositoryTest" time="0.018"/>
 </testsuite>

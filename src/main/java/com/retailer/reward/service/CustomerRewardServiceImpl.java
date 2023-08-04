@@ -10,12 +10,11 @@ import java.time.Instant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.retailer.reward.exception.CustomerNotFoundException;
 import com.retailer.reward.model.CustomerMonthlyRewardPoint;
 import com.retailer.reward.model.CustomerRewardDetail;
 import com.retailer.reward.repository.TransactionDetailRepository;
 import com.retailer.reward.service.helper.CustomerRewardServiceHelper;
-
-import jakarta.validation.ValidationException;
 
 @Service
 public class CustomerRewardServiceImpl extends CustomerRewardServiceHelper implements CustomerRewardService {
@@ -30,7 +29,7 @@ public class CustomerRewardServiceImpl extends CustomerRewardServiceHelper imple
   public CustomerRewardDetail getRewardPointsByCustomerId(final Long customerId) {
 
     if (customerDetailService.getCustomerIdById(customerId) == null) {
-      throw new ValidationException("Customer is not found");
+      throw new CustomerNotFoundException("Customer not found");
     }
 
     final var lastMonthTimestamp = getDateBasedOnOffSetDays(DAYS_IN_MONTH);
